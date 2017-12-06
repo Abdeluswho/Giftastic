@@ -1,22 +1,49 @@
 // Giphy $API use
 
 
-var animals = ['dog', 'cat', 'rabbit', 'hamster', 'bird', 'frog', 'roaster', 
-				'sheep', 'turtle', 'godlfish', 'horse'];
-var input = 0;
-var btn=0;
+var actors = ['Tom Hanks', 'Johnny Depp', 'Tom Cruise', 'Matt Damon', 'Brad Pitt', 'Robert De Niro', 'Harrison Ford', 
+				'Leonardo Dicaprio', 'Clint Eastwood', 'Will Smith', 'Morgan Freeman', 'Denzel Washington'];
+var $input='';
+var btn;
+var rm;
+$('body').css({'backgroundColor': 'grey' })
+
+$(document).ready(function(){
 
 
-//generating buttons dynamically
+//generating buttons dynamically- - - -- - - - - -- -- - 
 function assign() {
+
+	$('#btn').empty();
+	
 	// body...
-	for (var i = 0; i < animals.length; i++) {
-	btn = $('<button>');
-	btn.text(animals[i]);
-	$('#btn').append(btn);
+	for (var i = 0; i < actors.length; i++) {
+		btn = $('<button class="btn btn-success">');
+		btn.text(actors[i]);
+		btn.css({'margin': '5px'})
+		rm = $('<button class="remove btn-success" style = "margin-left: 20px">&times;</button>');
+		btn.append(rm);
+		$('#btn').append(btn);
 	}
 }
 assign();
 
+$(document).on("click", ".remove", function() {
+    $(this).parent().remove();
+});
+
+//user input manipulation -- - - - - - -  - - -- -- -  
+$('form').on('submit', function(event){
+	event.preventDefault();
+	$input = $('#user-input').val();
+	$('#user-input').val('');
+	actors.push($input);
+	assign();
+
+})
+
+
+
 //event hundler
-//user input manipulation
+
+})
