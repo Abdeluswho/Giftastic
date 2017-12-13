@@ -83,7 +83,7 @@ $(document).on("click", ".remove", function() {
     id = id.substring(0, id.length-1)
     console.log($('#display').find($('.'+id)).children());
     
-    $('div.' +id).html('');
+    $('div.' +id).val('');
 });
 
 //user input manipulation -- - - - - - -  - - -- -- -  
